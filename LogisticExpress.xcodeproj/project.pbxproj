@@ -1,0 +1,832 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7C05249E2BA6534800AE0813 /* SGNewOrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C05249D2BA6534800AE0813 /* SGNewOrderInfo.swift */; };
+		7C0524A22BA67AE100AE0813 /* SGMainPageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0524A12BA67AE100AE0813 /* SGMainPageHeader.swift */; };
+		7C0524A42BA7A70400AE0813 /* SGInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0524A32BA7A70400AE0813 /* SGInfoView.swift */; };
+		7C0B30D92BCED5140014489D /* SenderInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0B30D82BCED5140014489D /* SenderInfoView.swift */; };
+		7C0B30DB2BCED9ED0014489D /* DestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0B30DA2BCED9ED0014489D /* DestinationView.swift */; };
+		7C0B30DD2BCEDAEA0014489D /* OSButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0B30DC2BCEDAEA0014489D /* OSButtonView.swift */; };
+		7C0B30DF2BCEDECF0014489D /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0B30DE2BCEDECF0014489D /* OrderDetailsViewController.swift */; };
+		7C2E27CF2BAD223600A2170D /* SGTitleOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E27CE2BAD223600A2170D /* SGTitleOrderView.swift */; };
+		7C52FF982B9828BF0053D3A5 /* CircularProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52FF972B9828BF0053D3A5 /* CircularProgressBarViewController.swift */; };
+		7C52FF9A2B9829720053D3A5 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52FF992B9829720053D3A5 /* CircularProgressBarView.swift */; };
+		7C52FF9C2B982A7A0053D3A5 /* CircularProgressBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52FF9B2B982A7A0053D3A5 /* CircularProgressBarCoordinator.swift */; };
+		7C5307DC2BC72C00001B4E8C /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5307DB2BC72C00001B4E8C /* NotificationView.swift */; };
+		7C71A8F22B9548ED0037AE3D /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C71A8F12B9548ED0037AE3D /* TabBarCoordinator.swift */; };
+		7C71A8F42B95490E0037AE3D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C71A8F32B95490E0037AE3D /* TabBarController.swift */; };
+		7C71A8F92B9565040037AE3D /* OrderDetailsScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C71A8F82B9565040037AE3D /* OrderDetailsScreenCoordinator.swift */; };
+		7C75B5E12BB6709C00BF3610 /* SGOrderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C75B5E02BB6709C00BF3610 /* SGOrderButton.swift */; };
+		7C85F2DF2BB9D67900EDFA8D /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C85F2DE2BB9D67900EDFA8D /* OrderTableViewCell.swift */; };
+		7C89B9EF2BABF20D00F36F0E /* SimplexMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C89B9EE2BABF20D00F36F0E /* SimplexMethod.swift */; };
+		7C93C9072B81A7C7008DD3F1 /* ProfileScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9062B81A7C7008DD3F1 /* ProfileScreenViewController.swift */; };
+		7C93C9092B81A94D008DD3F1 /* ProfileScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9082B81A94D008DD3F1 /* ProfileScreenCoordinator.swift */; };
+		7C9BE6BC2BCDCEF10068C5EF /* BottomSheetUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BE6BB2BCDCEF10068C5EF /* BottomSheetUIView.swift */; };
+		7CB2D4472BCB16E7005169B8 /* RouteMapScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2D4462BCB16E7005169B8 /* RouteMapScreenViewController.swift */; };
+		7CB2D4492BCB1765005169B8 /* RouteMapScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2D4482BCB1765005169B8 /* RouteMapScreenCoordinator.swift */; };
+		7CB449572BBF13F2008649CC /* SGOrderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB449562BBF13F2008649CC /* SGOrderTableView.swift */; };
+		7CC467EC2BBB10AA00394735 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC467EB2BBB10AA00394735 /* OrderModel.swift */; };
+		7CC920D32BC469CB0011B4AF /* OrderGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC920D22BC469CB0011B4AF /* OrderGenerator.swift */; };
+		846EEF932B5FDFF000CCC4A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846EEF922B5FDFF000CCC4A6 /* AppDelegate.swift */; };
+		846EEF9D2B5FDFF000CCC4A6 /* LogisticsExpress.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 846EEF9B2B5FDFF000CCC4A6 /* LogisticsExpress.xcdatamodeld */; };
+		846EEF9F2B5FDFF500CCC4A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846EEF9E2B5FDFF500CCC4A6 /* Assets.xcassets */; };
+		846EEFA22B5FDFF500CCC4A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846EEFA02B5FDFF500CCC4A6 /* LaunchScreen.storyboard */; };
+		846EEFAD2B5FDFF600CCC4A6 /* LogisticsExpressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846EEFAC2B5FDFF600CCC4A6 /* LogisticsExpressTests.swift */; };
+		846EEFB72B5FDFF600CCC4A6 /* LogisticsExpressUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846EEFB62B5FDFF600CCC4A6 /* LogisticsExpressUITests.swift */; };
+		846EEFB92B5FDFF600CCC4A6 /* LogisticsExpressUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846EEFB82B5FDFF600CCC4A6 /* LogisticsExpressUITestsLaunchTests.swift */; };
+		846EEFC72B5FEA3100CCC4A6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846EEFC62B5FEA3100CCC4A6 /* Coordinator.swift */; };
+		846EEFC92B5FEA6700CCC4A6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846EEFC82B5FEA6700CCC4A6 /* AppCoordinator.swift */; };
+		846EEFCB2B5FEB2300CCC4A6 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846EEFCA2B5FEB2300CCC4A6 /* TabBarViewModel.swift */; };
+		846EEFD12B5FEBFE00CCC4A6 /* MainScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846EEFD02B5FEBFE00CCC4A6 /* MainScreenCoordinator.swift */; };
+		846EEFD32B5FEC2200CCC4A6 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846EEFD22B5FEC2200CCC4A6 /* MainScreenViewController.swift */; };
+		846EEFD52B5FECCE00CCC4A6 /* SGConstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846EEFD42B5FECCE00CCC4A6 /* SGConstruction.swift */; };
+		846EEFD72B5FECFC00CCC4A6 /* SGStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846EEFD62B5FECFC00CCC4A6 /* SGStackViewController.swift */; };
+		846EEFD92B5FED3900CCC4A6 /* SGSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846EEFD82B5FED3900CCC4A6 /* SGSegmentedControl.swift */; };
+		848BAD512B6FC147008612AF /* SGMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848BAD502B6FC147008612AF /* SGMap.swift */; };
+		849A70752B6FB7D4009B6B34 /* DeliveryScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A70742B6FB7D4009B6B34 /* DeliveryScreenViewController.swift */; };
+		849A70772B6FB7E9009B6B34 /* DeliveryScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A70762B6FB7E9009B6B34 /* DeliveryScreenCoordinator.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		846EEFA92B5FDFF600CCC4A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 846EEF872B5FDFF000CCC4A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 846EEF8E2B5FDFF000CCC4A6;
+			remoteInfo = LogisticsExpress;
+		};
+		846EEFB32B5FDFF600CCC4A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 846EEF872B5FDFF000CCC4A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 846EEF8E2B5FDFF000CCC4A6;
+			remoteInfo = LogisticsExpress;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7C05249D2BA6534800AE0813 /* SGNewOrderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGNewOrderInfo.swift; sourceTree = "<group>"; };
+		7C0524A12BA67AE100AE0813 /* SGMainPageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGMainPageHeader.swift; sourceTree = "<group>"; };
+		7C0524A32BA7A70400AE0813 /* SGInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGInfoView.swift; sourceTree = "<group>"; };
+		7C0B30D82BCED5140014489D /* SenderInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderInfoView.swift; sourceTree = "<group>"; };
+		7C0B30DA2BCED9ED0014489D /* DestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationView.swift; sourceTree = "<group>"; };
+		7C0B30DC2BCEDAEA0014489D /* OSButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSButtonView.swift; sourceTree = "<group>"; };
+		7C0B30DE2BCEDECF0014489D /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
+		7C2E27CE2BAD223600A2170D /* SGTitleOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGTitleOrderView.swift; sourceTree = "<group>"; };
+		7C52FF972B9828BF0053D3A5 /* CircularProgressBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarViewController.swift; sourceTree = "<group>"; };
+		7C52FF992B9829720053D3A5 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
+		7C52FF9B2B982A7A0053D3A5 /* CircularProgressBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarCoordinator.swift; sourceTree = "<group>"; };
+		7C5307DB2BC72C00001B4E8C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		7C71A8F12B9548ED0037AE3D /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		7C71A8F32B95490E0037AE3D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		7C71A8F82B9565040037AE3D /* OrderDetailsScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsScreenCoordinator.swift; sourceTree = "<group>"; };
+		7C75B5E02BB6709C00BF3610 /* SGOrderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGOrderButton.swift; sourceTree = "<group>"; };
+		7C85F2DE2BB9D67900EDFA8D /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		7C89B9EE2BABF20D00F36F0E /* SimplexMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplexMethod.swift; sourceTree = "<group>"; };
+		7C93C9062B81A7C7008DD3F1 /* ProfileScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewController.swift; sourceTree = "<group>"; };
+		7C93C9082B81A94D008DD3F1 /* ProfileScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenCoordinator.swift; sourceTree = "<group>"; };
+		7C9BE6BB2BCDCEF10068C5EF /* BottomSheetUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetUIView.swift; sourceTree = "<group>"; };
+		7CB2D4462BCB16E7005169B8 /* RouteMapScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapScreenViewController.swift; sourceTree = "<group>"; };
+		7CB2D4482BCB1765005169B8 /* RouteMapScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapScreenCoordinator.swift; sourceTree = "<group>"; };
+		7CB449562BBF13F2008649CC /* SGOrderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGOrderTableView.swift; sourceTree = "<group>"; };
+		7CC467EB2BBB10AA00394735 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
+		7CC920D22BC469CB0011B4AF /* OrderGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderGenerator.swift; sourceTree = "<group>"; };
+		846EEF8F2B5FDFF000CCC4A6 /* LogisticExpress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogisticExpress.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		846EEF922B5FDFF000CCC4A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		846EEF9C2B5FDFF000CCC4A6 /* LogisticsExpress.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LogisticsExpress.xcdatamodel; sourceTree = "<group>"; };
+		846EEF9E2B5FDFF500CCC4A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		846EEFA12B5FDFF500CCC4A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		846EEFA32B5FDFF500CCC4A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		846EEFA82B5FDFF600CCC4A6 /* LogisticExpressTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogisticExpressTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		846EEFAC2B5FDFF600CCC4A6 /* LogisticsExpressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogisticsExpressTests.swift; sourceTree = "<group>"; };
+		846EEFB22B5FDFF600CCC4A6 /* LogisticExpressUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogisticExpressUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		846EEFB62B5FDFF600CCC4A6 /* LogisticsExpressUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogisticsExpressUITests.swift; sourceTree = "<group>"; };
+		846EEFB82B5FDFF600CCC4A6 /* LogisticsExpressUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogisticsExpressUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		846EEFC62B5FEA3100CCC4A6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		846EEFC82B5FEA6700CCC4A6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		846EEFCA2B5FEB2300CCC4A6 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		846EEFD02B5FEBFE00CCC4A6 /* MainScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCoordinator.swift; sourceTree = "<group>"; };
+		846EEFD22B5FEC2200CCC4A6 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		846EEFD42B5FECCE00CCC4A6 /* SGConstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGConstruction.swift; sourceTree = "<group>"; };
+		846EEFD62B5FECFC00CCC4A6 /* SGStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGStackViewController.swift; sourceTree = "<group>"; };
+		846EEFD82B5FED3900CCC4A6 /* SGSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGSegmentedControl.swift; sourceTree = "<group>"; };
+		848BAD502B6FC147008612AF /* SGMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGMap.swift; sourceTree = "<group>"; };
+		849A70742B6FB7D4009B6B34 /* DeliveryScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryScreenViewController.swift; sourceTree = "<group>"; };
+		849A70762B6FB7E9009B6B34 /* DeliveryScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryScreenCoordinator.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		846EEF8C2B5FDFF000CCC4A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		846EEFA52B5FDFF600CCC4A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		846EEFAF2B5FDFF600CCC4A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7C71A8F52B95643D0037AE3D /* OrderDetailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7C0B30DE2BCEDECF0014489D /* OrderDetailsViewController.swift */,
+				7C71A8F82B9565040037AE3D /* OrderDetailsScreenCoordinator.swift */,
+			);
+			path = OrderDetailsScreen;
+			sourceTree = "<group>";
+		};
+		7C93C9052B81A764008DD3F1 /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7C93C9062B81A7C7008DD3F1 /* ProfileScreenViewController.swift */,
+				7C93C9082B81A94D008DD3F1 /* ProfileScreenCoordinator.swift */,
+			);
+			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
+		7CB2D44A2BCB1775005169B8 /* RouteMapScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7CB2D4462BCB16E7005169B8 /* RouteMapScreenViewController.swift */,
+				7CB2D4482BCB1765005169B8 /* RouteMapScreenCoordinator.swift */,
+			);
+			path = RouteMapScreen;
+			sourceTree = "<group>";
+		};
+		7CB449582BBF2297008649CC /* OrderTableView */ = {
+			isa = PBXGroup;
+			children = (
+				7CB449562BBF13F2008649CC /* SGOrderTableView.swift */,
+				7C85F2DE2BB9D67900EDFA8D /* OrderTableViewCell.swift */,
+			);
+			path = OrderTableView;
+			sourceTree = "<group>";
+		};
+		7CC920D12BC465140011B4AF /* CircularProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+				7C52FF992B9829720053D3A5 /* CircularProgressBarView.swift */,
+				7C52FF972B9828BF0053D3A5 /* CircularProgressBarViewController.swift */,
+				7C52FF9B2B982A7A0053D3A5 /* CircularProgressBarCoordinator.swift */,
+			);
+			path = CircularProgressBar;
+			sourceTree = "<group>";
+		};
+		846EEF862B5FDFF000CCC4A6 = {
+			isa = PBXGroup;
+			children = (
+				846EEF912B5FDFF000CCC4A6 /* LogisticExpress */,
+				846EEFAB2B5FDFF600CCC4A6 /* LogisticExpressTests */,
+				846EEFB52B5FDFF600CCC4A6 /* LogisticExpressUITests */,
+				846EEF902B5FDFF000CCC4A6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		846EEF902B5FDFF000CCC4A6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				846EEF8F2B5FDFF000CCC4A6 /* LogisticExpress.app */,
+				846EEFA82B5FDFF600CCC4A6 /* LogisticExpressTests.xctest */,
+				846EEFB22B5FDFF600CCC4A6 /* LogisticExpressUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		846EEF912B5FDFF000CCC4A6 /* LogisticExpress */ = {
+			isa = PBXGroup;
+			children = (
+				846EEFDC2B5FF3D300CCC4A6 /* UIComponents */,
+				846EEFDB2B5FF3A800CCC4A6 /* MainScreen */,
+				849A70732B6FB7AA009B6B34 /* DeliveryScreen */,
+				7C93C9052B81A764008DD3F1 /* ProfileScreen */,
+				7C71A8F52B95643D0037AE3D /* OrderDetailsScreen */,
+				7CB2D44A2BCB1775005169B8 /* RouteMapScreen */,
+				846EEFC52B5FEA0200CCC4A6 /* Coordinators */,
+				846EEF922B5FDFF000CCC4A6 /* AppDelegate.swift */,
+				846EEF9E2B5FDFF500CCC4A6 /* Assets.xcassets */,
+				846EEFA02B5FDFF500CCC4A6 /* LaunchScreen.storyboard */,
+				846EEFA32B5FDFF500CCC4A6 /* Info.plist */,
+				846EEF9B2B5FDFF000CCC4A6 /* LogisticsExpress.xcdatamodeld */,
+				7C89B9EE2BABF20D00F36F0E /* SimplexMethod.swift */,
+				7CC467EB2BBB10AA00394735 /* OrderModel.swift */,
+				7CC920D22BC469CB0011B4AF /* OrderGenerator.swift */,
+			);
+			path = LogisticExpress;
+			sourceTree = "<group>";
+		};
+		846EEFAB2B5FDFF600CCC4A6 /* LogisticExpressTests */ = {
+			isa = PBXGroup;
+			children = (
+				846EEFAC2B5FDFF600CCC4A6 /* LogisticsExpressTests.swift */,
+			);
+			path = LogisticExpressTests;
+			sourceTree = "<group>";
+		};
+		846EEFB52B5FDFF600CCC4A6 /* LogisticExpressUITests */ = {
+			isa = PBXGroup;
+			children = (
+				846EEFB62B5FDFF600CCC4A6 /* LogisticsExpressUITests.swift */,
+				846EEFB82B5FDFF600CCC4A6 /* LogisticsExpressUITestsLaunchTests.swift */,
+			);
+			path = LogisticExpressUITests;
+			sourceTree = "<group>";
+		};
+		846EEFC52B5FEA0200CCC4A6 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				846EEFC62B5FEA3100CCC4A6 /* Coordinator.swift */,
+				846EEFC82B5FEA6700CCC4A6 /* AppCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		846EEFDA2B5FF38400CCC4A6 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				846EEFCA2B5FEB2300CCC4A6 /* TabBarViewModel.swift */,
+				7C71A8F12B9548ED0037AE3D /* TabBarCoordinator.swift */,
+				7C71A8F32B95490E0037AE3D /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		846EEFDB2B5FF3A800CCC4A6 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				846EEFD02B5FEBFE00CCC4A6 /* MainScreenCoordinator.swift */,
+				846EEFD22B5FEC2200CCC4A6 /* MainScreenViewController.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		846EEFDC2B5FF3D300CCC4A6 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				7CC920D12BC465140011B4AF /* CircularProgressBar */,
+				846EEFDA2B5FF38400CCC4A6 /* TabBar */,
+				7CB449582BBF2297008649CC /* OrderTableView */,
+				846EEFD42B5FECCE00CCC4A6 /* SGConstruction.swift */,
+				846EEFD62B5FECFC00CCC4A6 /* SGStackViewController.swift */,
+				846EEFD82B5FED3900CCC4A6 /* SGSegmentedControl.swift */,
+				848BAD502B6FC147008612AF /* SGMap.swift */,
+				7C05249D2BA6534800AE0813 /* SGNewOrderInfo.swift */,
+				7C0524A12BA67AE100AE0813 /* SGMainPageHeader.swift */,
+				7C0524A32BA7A70400AE0813 /* SGInfoView.swift */,
+				7C2E27CE2BAD223600A2170D /* SGTitleOrderView.swift */,
+				7C75B5E02BB6709C00BF3610 /* SGOrderButton.swift */,
+				7C5307DB2BC72C00001B4E8C /* NotificationView.swift */,
+				7C9BE6BB2BCDCEF10068C5EF /* BottomSheetUIView.swift */,
+				7C0B30D82BCED5140014489D /* SenderInfoView.swift */,
+				7C0B30DA2BCED9ED0014489D /* DestinationView.swift */,
+				7C0B30DC2BCEDAEA0014489D /* OSButtonView.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		849A70732B6FB7AA009B6B34 /* DeliveryScreen */ = {
+			isa = PBXGroup;
+			children = (
+				849A70742B6FB7D4009B6B34 /* DeliveryScreenViewController.swift */,
+				849A70762B6FB7E9009B6B34 /* DeliveryScreenCoordinator.swift */,
+			);
+			path = DeliveryScreen;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		846EEF8E2B5FDFF000CCC4A6 /* LogisticExpress */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 846EEFBC2B5FDFF600CCC4A6 /* Build configuration list for PBXNativeTarget "LogisticExpress" */;
+			buildPhases = (
+				846EEF8B2B5FDFF000CCC4A6 /* Sources */,
+				846EEF8C2B5FDFF000CCC4A6 /* Frameworks */,
+				846EEF8D2B5FDFF000CCC4A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LogisticExpress;
+			productName = LogisticsExpress;
+			productReference = 846EEF8F2B5FDFF000CCC4A6 /* LogisticExpress.app */;
+			productType = "com.apple.product-type.application";
+		};
+		846EEFA72B5FDFF600CCC4A6 /* LogisticExpressTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 846EEFBF2B5FDFF600CCC4A6 /* Build configuration list for PBXNativeTarget "LogisticExpressTests" */;
+			buildPhases = (
+				846EEFA42B5FDFF600CCC4A6 /* Sources */,
+				846EEFA52B5FDFF600CCC4A6 /* Frameworks */,
+				846EEFA62B5FDFF600CCC4A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				846EEFAA2B5FDFF600CCC4A6 /* PBXTargetDependency */,
+			);
+			name = LogisticExpressTests;
+			productName = LogisticsExpressTests;
+			productReference = 846EEFA82B5FDFF600CCC4A6 /* LogisticExpressTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		846EEFB12B5FDFF600CCC4A6 /* LogisticExpressUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 846EEFC22B5FDFF600CCC4A6 /* Build configuration list for PBXNativeTarget "LogisticExpressUITests" */;
+			buildPhases = (
+				846EEFAE2B5FDFF600CCC4A6 /* Sources */,
+				846EEFAF2B5FDFF600CCC4A6 /* Frameworks */,
+				846EEFB02B5FDFF600CCC4A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				846EEFB42B5FDFF600CCC4A6 /* PBXTargetDependency */,
+			);
+			name = LogisticExpressUITests;
+			productName = LogisticsExpressUITests;
+			productReference = 846EEFB22B5FDFF600CCC4A6 /* LogisticExpressUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		846EEF872B5FDFF000CCC4A6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					846EEF8E2B5FDFF000CCC4A6 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					846EEFA72B5FDFF600CCC4A6 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 846EEF8E2B5FDFF000CCC4A6;
+					};
+					846EEFB12B5FDFF600CCC4A6 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 846EEF8E2B5FDFF000CCC4A6;
+					};
+				};
+			};
+			buildConfigurationList = 846EEF8A2B5FDFF000CCC4A6 /* Build configuration list for PBXProject "LogisticExpress" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 846EEF862B5FDFF000CCC4A6;
+			productRefGroup = 846EEF902B5FDFF000CCC4A6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				846EEF8E2B5FDFF000CCC4A6 /* LogisticExpress */,
+				846EEFA72B5FDFF600CCC4A6 /* LogisticExpressTests */,
+				846EEFB12B5FDFF600CCC4A6 /* LogisticExpressUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		846EEF8D2B5FDFF000CCC4A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				846EEFA22B5FDFF500CCC4A6 /* LaunchScreen.storyboard in Resources */,
+				846EEF9F2B5FDFF500CCC4A6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		846EEFA62B5FDFF600CCC4A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		846EEFB02B5FDFF600CCC4A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		846EEF8B2B5FDFF000CCC4A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CB2D4492BCB1765005169B8 /* RouteMapScreenCoordinator.swift in Sources */,
+				7C52FF9C2B982A7A0053D3A5 /* CircularProgressBarCoordinator.swift in Sources */,
+				7C52FF982B9828BF0053D3A5 /* CircularProgressBarViewController.swift in Sources */,
+				7C0B30DD2BCEDAEA0014489D /* OSButtonView.swift in Sources */,
+				849A70772B6FB7E9009B6B34 /* DeliveryScreenCoordinator.swift in Sources */,
+				7C89B9EF2BABF20D00F36F0E /* SimplexMethod.swift in Sources */,
+				846EEFC72B5FEA3100CCC4A6 /* Coordinator.swift in Sources */,
+				7CB2D4472BCB16E7005169B8 /* RouteMapScreenViewController.swift in Sources */,
+				7C0B30DF2BCEDECF0014489D /* OrderDetailsViewController.swift in Sources */,
+				7CB449572BBF13F2008649CC /* SGOrderTableView.swift in Sources */,
+				7C71A8F22B9548ED0037AE3D /* TabBarCoordinator.swift in Sources */,
+				846EEF9D2B5FDFF000CCC4A6 /* LogisticsExpress.xcdatamodeld in Sources */,
+				7C93C9072B81A7C7008DD3F1 /* ProfileScreenViewController.swift in Sources */,
+				7C52FF9A2B9829720053D3A5 /* CircularProgressBarView.swift in Sources */,
+				846EEFC92B5FEA6700CCC4A6 /* AppCoordinator.swift in Sources */,
+				7C05249E2BA6534800AE0813 /* SGNewOrderInfo.swift in Sources */,
+				7CC467EC2BBB10AA00394735 /* OrderModel.swift in Sources */,
+				7C71A8F42B95490E0037AE3D /* TabBarController.swift in Sources */,
+				849A70752B6FB7D4009B6B34 /* DeliveryScreenViewController.swift in Sources */,
+				846EEFD92B5FED3900CCC4A6 /* SGSegmentedControl.swift in Sources */,
+				7C0B30D92BCED5140014489D /* SenderInfoView.swift in Sources */,
+				7C0524A22BA67AE100AE0813 /* SGMainPageHeader.swift in Sources */,
+				7CC920D32BC469CB0011B4AF /* OrderGenerator.swift in Sources */,
+				7C75B5E12BB6709C00BF3610 /* SGOrderButton.swift in Sources */,
+				7C71A8F92B9565040037AE3D /* OrderDetailsScreenCoordinator.swift in Sources */,
+				846EEFD72B5FECFC00CCC4A6 /* SGStackViewController.swift in Sources */,
+				7C5307DC2BC72C00001B4E8C /* NotificationView.swift in Sources */,
+				7C9BE6BC2BCDCEF10068C5EF /* BottomSheetUIView.swift in Sources */,
+				846EEFD32B5FEC2200CCC4A6 /* MainScreenViewController.swift in Sources */,
+				846EEFD52B5FECCE00CCC4A6 /* SGConstruction.swift in Sources */,
+				846EEFD12B5FEBFE00CCC4A6 /* MainScreenCoordinator.swift in Sources */,
+				7C2E27CF2BAD223600A2170D /* SGTitleOrderView.swift in Sources */,
+				7C93C9092B81A94D008DD3F1 /* ProfileScreenCoordinator.swift in Sources */,
+				846EEFCB2B5FEB2300CCC4A6 /* TabBarViewModel.swift in Sources */,
+				7C0B30DB2BCED9ED0014489D /* DestinationView.swift in Sources */,
+				7C0524A42BA7A70400AE0813 /* SGInfoView.swift in Sources */,
+				846EEF932B5FDFF000CCC4A6 /* AppDelegate.swift in Sources */,
+				848BAD512B6FC147008612AF /* SGMap.swift in Sources */,
+				7C85F2DF2BB9D67900EDFA8D /* OrderTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		846EEFA42B5FDFF600CCC4A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				846EEFAD2B5FDFF600CCC4A6 /* LogisticsExpressTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		846EEFAE2B5FDFF600CCC4A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				846EEFB72B5FDFF600CCC4A6 /* LogisticsExpressUITests.swift in Sources */,
+				846EEFB92B5FDFF600CCC4A6 /* LogisticsExpressUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		846EEFAA2B5FDFF600CCC4A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 846EEF8E2B5FDFF000CCC4A6 /* LogisticExpress */;
+			targetProxy = 846EEFA92B5FDFF600CCC4A6 /* PBXContainerItemProxy */;
+		};
+		846EEFB42B5FDFF600CCC4A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 846EEF8E2B5FDFF000CCC4A6 /* LogisticExpress */;
+			targetProxy = 846EEFB32B5FDFF600CCC4A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		846EEFA02B5FDFF500CCC4A6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				846EEFA12B5FDFF500CCC4A6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		846EEFBA2B5FDFF600CCC4A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		846EEFBB2B5FDFF600CCC4A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		846EEFBD2B5FDFF600CCC4A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZTBSRNSWGH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LogisticExpress/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.home.LogisticsExpress;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		846EEFBE2B5FDFF600CCC4A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZTBSRNSWGH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LogisticExpress/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.home.LogisticsExpress;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		846EEFC02B5FDFF600CCC4A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZTBSRNSWGH;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.home.LogisticsExpressTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LogisticExpress.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LogisticExpress";
+			};
+			name = Debug;
+		};
+		846EEFC12B5FDFF600CCC4A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZTBSRNSWGH;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.home.LogisticsExpressTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LogisticExpress.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LogisticExpress";
+			};
+			name = Release;
+		};
+		846EEFC32B5FDFF600CCC4A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZTBSRNSWGH;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.home.LogisticsExpressUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LogisticsExpress;
+			};
+			name = Debug;
+		};
+		846EEFC42B5FDFF600CCC4A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZTBSRNSWGH;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.home.LogisticsExpressUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LogisticsExpress;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		846EEF8A2B5FDFF000CCC4A6 /* Build configuration list for PBXProject "LogisticExpress" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				846EEFBA2B5FDFF600CCC4A6 /* Debug */,
+				846EEFBB2B5FDFF600CCC4A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		846EEFBC2B5FDFF600CCC4A6 /* Build configuration list for PBXNativeTarget "LogisticExpress" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				846EEFBD2B5FDFF600CCC4A6 /* Debug */,
+				846EEFBE2B5FDFF600CCC4A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		846EEFBF2B5FDFF600CCC4A6 /* Build configuration list for PBXNativeTarget "LogisticExpressTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				846EEFC02B5FDFF600CCC4A6 /* Debug */,
+				846EEFC12B5FDFF600CCC4A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		846EEFC22B5FDFF600CCC4A6 /* Build configuration list for PBXNativeTarget "LogisticExpressUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				846EEFC32B5FDFF600CCC4A6 /* Debug */,
+				846EEFC42B5FDFF600CCC4A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		846EEF9B2B5FDFF000CCC4A6 /* LogisticsExpress.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				846EEF9C2B5FDFF000CCC4A6 /* LogisticsExpress.xcdatamodel */,
+			);
+			currentVersion = 846EEF9C2B5FDFF000CCC4A6 /* LogisticsExpress.xcdatamodel */;
+			path = LogisticsExpress.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 846EEF872B5FDFF000CCC4A6 /* Project object */;
+}
