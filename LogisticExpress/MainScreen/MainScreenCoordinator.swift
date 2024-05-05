@@ -21,10 +21,4 @@ class MainScreenCoordinator: Coordinator {
         orderDetailsScreenCoordinator.start()
     }
 
-//    func showRouteMapPage() {
-//        let routeMapScreenCoordinator = RouteMapScreenCoordinator(navigationController: navigationController)
-//        childCoordinators.append(routeMapScreenCoordinator)
-//        routeMapScreenCoordinator.start()
-//    }
-    
 }

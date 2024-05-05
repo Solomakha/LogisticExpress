@@ -68,6 +68,11 @@ class SGNewOrderInfo: UIView {
         return dataView
     }()
     
+    func updateNumberOfOrders(_ numberOfOrders: Int) {
+        // Обновите значение в вашем представлении, например:
+        numberNewOrderLabel.text = "\(numberOfOrders)"
+    }
+    
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             dataView.topAnchor.constraint(equalTo: self.topAnchor),
@@ -78,7 +83,7 @@ class SGNewOrderInfo: UIView {
             
             dateTimeLabel.topAnchor.constraint(equalTo: dataView.topAnchor, constant: 5),
             dateTimeLabel.leftAnchor.constraint(equalTo: dataView.leftAnchor, constant: 12),
-
+            
             newOrderTextLabel.topAnchor.constraint(equalTo: dateTimeLabel.bottomAnchor, constant: 7),
             newOrderTextLabel.leftAnchor.constraint(equalTo: boxImageView.rightAnchor, constant: 7),
             

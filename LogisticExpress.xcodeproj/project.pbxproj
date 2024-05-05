@@ -15,10 +15,12 @@
 		7C0B30DD2BCEDAEA0014489D /* OSButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0B30DC2BCEDAEA0014489D /* OSButtonView.swift */; };
 		7C0B30DF2BCEDECF0014489D /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0B30DE2BCEDECF0014489D /* OrderDetailsViewController.swift */; };
 		7C2E27CF2BAD223600A2170D /* SGTitleOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E27CE2BAD223600A2170D /* SGTitleOrderView.swift */; };
+		7C3158542BD985A200B1E675 /* TruckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3158532BD985A200B1E675 /* TruckViewController.swift */; };
 		7C52FF982B9828BF0053D3A5 /* CircularProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52FF972B9828BF0053D3A5 /* CircularProgressBarViewController.swift */; };
 		7C52FF9A2B9829720053D3A5 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52FF992B9829720053D3A5 /* CircularProgressBarView.swift */; };
 		7C52FF9C2B982A7A0053D3A5 /* CircularProgressBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52FF9B2B982A7A0053D3A5 /* CircularProgressBarCoordinator.swift */; };
 		7C5307DC2BC72C00001B4E8C /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5307DB2BC72C00001B4E8C /* NotificationView.swift */; };
+		7C67E3152BDEB19100A735FF /* DetailOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67E3142BDEB19100A735FF /* DetailOrderView.swift */; };
 		7C71A8F22B9548ED0037AE3D /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C71A8F12B9548ED0037AE3D /* TabBarCoordinator.swift */; };
 		7C71A8F42B95490E0037AE3D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C71A8F32B95490E0037AE3D /* TabBarController.swift */; };
 		7C71A8F92B9565040037AE3D /* OrderDetailsScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C71A8F82B9565040037AE3D /* OrderDetailsScreenCoordinator.swift */; };
@@ -79,10 +81,12 @@
 		7C0B30DC2BCEDAEA0014489D /* OSButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSButtonView.swift; sourceTree = "<group>"; };
 		7C0B30DE2BCEDECF0014489D /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		7C2E27CE2BAD223600A2170D /* SGTitleOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGTitleOrderView.swift; sourceTree = "<group>"; };
+		7C3158532BD985A200B1E675 /* TruckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckViewController.swift; sourceTree = "<group>"; };
 		7C52FF972B9828BF0053D3A5 /* CircularProgressBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarViewController.swift; sourceTree = "<group>"; };
 		7C52FF992B9829720053D3A5 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		7C52FF9B2B982A7A0053D3A5 /* CircularProgressBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarCoordinator.swift; sourceTree = "<group>"; };
 		7C5307DB2BC72C00001B4E8C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		7C67E3142BDEB19100A735FF /* DetailOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOrderView.swift; sourceTree = "<group>"; };
 		7C71A8F12B9548ED0037AE3D /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		7C71A8F32B95490E0037AE3D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		7C71A8F82B9565040037AE3D /* OrderDetailsScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsScreenCoordinator.swift; sourceTree = "<group>"; };
@@ -230,6 +234,7 @@
 				7C89B9EE2BABF20D00F36F0E /* SimplexMethod.swift */,
 				7CC467EB2BBB10AA00394735 /* OrderModel.swift */,
 				7CC920D22BC469CB0011B4AF /* OrderGenerator.swift */,
+				7C3158532BD985A200B1E675 /* TruckViewController.swift */,
 			);
 			path = LogisticExpress;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 				7C0B30D82BCED5140014489D /* SenderInfoView.swift */,
 				7C0B30DA2BCED9ED0014489D /* DestinationView.swift */,
 				7C0B30DC2BCEDAEA0014489D /* OSButtonView.swift */,
+				7C67E3142BDEB19100A735FF /* DetailOrderView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -460,6 +466,7 @@
 				7C05249E2BA6534800AE0813 /* SGNewOrderInfo.swift in Sources */,
 				7CC467EC2BBB10AA00394735 /* OrderModel.swift in Sources */,
 				7C71A8F42B95490E0037AE3D /* TabBarController.swift in Sources */,
+				7C67E3152BDEB19100A735FF /* DetailOrderView.swift in Sources */,
 				849A70752B6FB7D4009B6B34 /* DeliveryScreenViewController.swift in Sources */,
 				846EEFD92B5FED3900CCC4A6 /* SGSegmentedControl.swift in Sources */,
 				7C0B30D92BCED5140014489D /* SenderInfoView.swift in Sources */,
@@ -470,6 +477,7 @@
 				846EEFD72B5FECFC00CCC4A6 /* SGStackViewController.swift in Sources */,
 				7C5307DC2BC72C00001B4E8C /* NotificationView.swift in Sources */,
 				7C9BE6BC2BCDCEF10068C5EF /* BottomSheetUIView.swift in Sources */,
+				7C3158542BD985A200B1E675 /* TruckViewController.swift in Sources */,
 				846EEFD32B5FEC2200CCC4A6 /* MainScreenViewController.swift in Sources */,
 				846EEFD52B5FECCE00CCC4A6 /* SGConstruction.swift in Sources */,
 				846EEFD12B5FEBFE00CCC4A6 /* MainScreenCoordinator.swift in Sources */,

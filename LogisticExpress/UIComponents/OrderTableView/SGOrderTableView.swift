@@ -37,7 +37,7 @@ class SGOrderTableView: UIView {
         // Регистрируем ячейку для использования в таблице
         tableView.register(OrderTableViewCell.self, forCellReuseIdentifier: "OrderCell")
         
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 60))
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 65))
         footerView.addSubview(orderButton)
         
         tableView.tableFooterView = footerView
@@ -48,9 +48,9 @@ class SGOrderTableView: UIView {
         orderButton.leadingAnchor.constraint(equalTo: footerView.leadingAnchor).isActive = true
         orderButton.trailingAnchor.constraint(equalTo: footerView.trailingAnchor).isActive = true
         orderButton.topAnchor.constraint(equalTo: footerView.topAnchor, constant: 10).isActive = true
-        orderButton.bottomAnchor.constraint(equalTo: footerView.bottomAnchor).isActive = true
+        orderButton.bottomAnchor.constraint(equalTo: footerView.bottomAnchor, constant: -5).isActive = true
         
-        orderButton.addTarget(self, action: #selector(routePlanningButtonTapped), for: .touchUpInside)
+        orderButton.addTarget(self, action: #selector(planingButtonTapped), for: .touchUpInside)
         
         footerView.bottomAnchor.constraint(equalTo: tableView.bottomAnchor, constant: -10).isActive = true
     }
@@ -72,14 +72,34 @@ class SGOrderTableView: UIView {
     
     @objc func reloadData() {
         // Обновляем данные в массиве заказов
-        orders = (0..<numberOfCells).map { _ in OrderGenerator.generateRandomOrder() }
+        // Генерируем случайное количество ячеек, например, от 5 до 15
+        numberOfCells = Int.random(in: 2...5)
+        
+        generateOrders()
+        
         // Перезагружаем таблицу
         tableView.reloadData()
+        
+        // Передаем обновленное количество заказов делегату
+           orderDelegate?.didUpdateNumberOfOrders(orders.count)
     }
     
-    @objc func routePlanningButtonTapped() {
+    private func generateOrders() {
+        orders.removeAll() // Очищаем массив заказов
+        
+        // Генерируем случайные заказы и добавляем их в массив
+        for _ in 0..<numberOfCells {
+            let randomOrder = OrderGenerator.generateRandomOrder()
+            orders.append(randomOrder)
+        }
+    }
+    
+    @objc func planingButtonTapped() {
         let shopCoordinates = orders.map { $0.shopCoordinates }
         orderDelegate?.receivedCoordinates(shopCoordinates)
+        
+        let allOrders = orders
+        orderDelegate?.receivedData(allOrders)
     }
     
     let orderButton : UIButton = {
@@ -101,11 +121,33 @@ class SGOrderTableView: UIView {
         
         return button
     }()
+    
+    func clearData() {
+        // Обход всех секций в таблице
+        for sectionIndex in 0..<tableView.numberOfSections {
+            // Обход всех строк в каждой секции
+            for rowIndex in 0..<tableView.numberOfRows(inSection: sectionIndex) {
+                // Получаем indexPath для текущей ячейки
+                let indexPath = IndexPath(row: rowIndex, section: sectionIndex)
+                // Получаем ссылку на ячейку по indexPath
+                if let cell = tableView.cellForRow(at: indexPath) {
+                    // Очищаем содержимое ячейки
+                    cell.textLabel?.text = nil // Пример для ячейки с текстовым меткой
+                    // Если ваша ячейка содержит другие элементы, то их также нужно очистить
+                    // Например, если у вас есть изображения, то можно установить их в nil
+                    // cell.imageView?.image = nil
+                }
+            }
+        }
+    }
+    
 }
 
 protocol SGOrderTableViewDelegate: AnyObject {
     func didSelectOrder(at indexPath: IndexPath, withData data: OrderModel)
     func receivedCoordinates(_ coordinates: [(Double, Double)])
+    func receivedData(_ data: [OrderModel])
+    func didUpdateNumberOfOrders(_ numberOfOrders: Int)
 }
 
 extension SGOrderTableView: UITableViewDelegate, UITableViewDataSource {

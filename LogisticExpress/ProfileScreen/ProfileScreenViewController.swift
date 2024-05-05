@@ -158,7 +158,7 @@ class ProfileScreenViewController: SGStackViewController {
         stack2.addSubview(lbl1)
         
         let lbl2 = UILabel()
-        lbl2.text = "george@gmail.com"
+        lbl2.text = "agro-nova@gmail.com"
         lbl2.textAlignment = .left
         lbl2.font = UIFont.systemFont(ofSize: 15)
         lbl2.translatesAutoresizingMaskIntoConstraints = false
@@ -187,7 +187,7 @@ class ProfileScreenViewController: SGStackViewController {
         stack3.addArrangedSubview(lbl3)
         
         let lbl4 = UILabel()
-        lbl4.text = "+380991234567"
+        lbl4.text = "+380991833507"
         lbl4.textAlignment = .left
         lbl4.font = UIFont.systemFont(ofSize: 15)
         lbl4.translatesAutoresizingMaskIntoConstraints = false
@@ -318,7 +318,7 @@ class ProfileScreenViewController: SGStackViewController {
         stack.axis = .horizontal
         
         let lbl1 = UILabel()
-        lbl1.text = "Get push notification"
+        lbl1.text = "Отримувати push-сповіщення"
         lbl1.textAlignment = .left
         lbl1.font = UIFont.systemFont(ofSize: 15)
         lbl1.translatesAutoresizingMaskIntoConstraints = false

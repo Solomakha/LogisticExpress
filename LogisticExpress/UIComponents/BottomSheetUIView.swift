@@ -9,106 +9,118 @@ import Foundation
 import UIKit
 
 class BottomSheetUIView: UIView {
+    let qrSize: CGFloat = 300
     
-    lazy var bottomView: UIView = {
-        let bottomView = UIView()
-        bottomView.backgroundColor = .white
+    let mkImagew : UIImageView = {
+        let imageView = UIImageView()
+        //imageView.frame = CGRect(x:  0, y:  0, width:  0, height:  300)
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.layer.shadowColor = UIColor.black.cgColor
+        imageView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        imageView.layer.shadowOpacity = 0.2
+        imageView.layer.shadowRadius = 2.0
         
-        bottomView.layer.cornerRadius = 10
-        bottomView.translatesAutoresizingMaskIntoConstraints = false
-        
-        bottomView.layer.borderWidth = 0.2
-        bottomView.layer.borderColor = UIColor.gray.cgColor
-        bottomView.layer.shadowColor = UIColor.black.cgColor
-        bottomView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
-        bottomView.layer.shadowOpacity = 0.2
-        bottomView.layer.shadowRadius = 2.0
-        
-        return bottomView
+        return imageView
     }()
     
-    private lazy var mainLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Bottom Sheet"
-        label.font = UIFont.systemFont(ofSize: 24)
-        label.textColor = .white
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    let textLabel : UILabel = {
+        let textLabel = UILabel()
+        textLabel.text = "Відскануйте QR-code"
+        textLabel.textAlignment = .center
+        textLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        textLabel.textColor = .black
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        textLabel.sizeToFit()//If required
+        return textLabel
     }()
     
-    let orderButton : UIButton = {
-        let button = UIButton(type: .system)
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Побудувати маршрут", for: .normal)
-        button.backgroundColor = .orange
-        
-        // Set button properties
-        button.tintColor = .white
-        button.layer.cornerRadius = 25
-        
-        // Add shadow to the button
-        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.06).cgColor
-        button.layer.shadowOpacity = 1
-        button.layer.shadowRadius = 8
-        button.layer.shadowOffset = CGSize(width: 0, height: 4)
-        
-        return button
+    let descriptionLabel : UILabel = {
+        let descriptionLabel = UILabel()
+        descriptionLabel.text = "Покажіть цей код у вибраній точці обслуговування."
+        descriptionLabel.numberOfLines = 2
+        descriptionLabel.textAlignment = .center
+        descriptionLabel.font = UIFont.systemFont(ofSize: 16)
+        descriptionLabel.textColor = .gray
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.sizeToFit()//If required
+        return descriptionLabel
     }()
     
     lazy var closeButton: UIButton = {
-        let closeButton = UIButton(type: .custom)
+        let closeButton = UIButton(type: .system)
+        closeButton.setTitle("Закрити", for: .normal)
+        closeButton.backgroundColor = .systemOrange
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         closeButton.clipsToBounds = true
-        closeButton.setImage(UIImage(named: "close"), for: .normal)
+        closeButton.layer.cornerRadius = 25
+        closeButton.setTitleColor(.white, for: .normal)
         return closeButton
     }()
     
-    
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        setupViewHierarchy()
-        setupViewAttributes()
-        setupLayout()
+    init() {
+        super.init(frame: .zero)
+        setupView()
     }
-    
-    required init?(coder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupViewHierarchy(){
-        self.addSubview(bottomView)
-       
+    private func setupView() {
+        addSubview(notificationView)
+        setupConstraints()
+        mkImagew.translatesAutoresizingMaskIntoConstraints = false
+        mkImagew.heightAnchor.constraint(equalToConstant: qrSize).isActive = true
+        mkImagew.widthAnchor.constraint(equalToConstant: qrSize).isActive = true
     }
     
-    func setupViewAttributes(){
-        self.backgroundColor = .black
-        self.layer.cornerRadius = 40
-        orderButton.addTarget(self, action: #selector(routePlanningButtonTapped), for: .touchUpInside)
-    }
+    lazy var notificationView: UIView = {
+        let notificationView = UIView()
+        notificationView.backgroundColor = .white
+        notificationView.layer.cornerRadius = 13
+        notificationView.translatesAutoresizingMaskIntoConstraints = false
+        notificationView.layer.borderWidth = 0.5
+        notificationView.layer.borderColor = UIColor.black.cgColor
+        notificationView.layer.shadowColor = UIColor.black.cgColor
+        notificationView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        notificationView.layer.shadowOpacity = 0.2
+        notificationView.layer.shadowRadius = 2.0
+        
+        notificationView.addSubview(textLabel)
+        notificationView.addSubview(descriptionLabel)
+        
+        notificationView.addSubview(closeButton)
+        notificationView.addSubview(mkImagew)
+        
+        return notificationView
+    }()
     
-    func setupLayout(){
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
+            notificationView.topAnchor.constraint(equalTo: self.topAnchor),
+            notificationView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            notificationView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            notificationView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            notificationView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
-            bottomView.topAnchor.constraint(equalTo: self.topAnchor),
-            bottomView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            bottomView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            bottomView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            bottomView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            textLabel.topAnchor.constraint(equalTo: notificationView.topAnchor, constant: 15),
+            textLabel.leftAnchor.constraint(equalTo: notificationView.leftAnchor, constant: 12),
+            textLabel.rightAnchor.constraint(equalTo: notificationView.rightAnchor, constant: -12),
             
-            closeButton.heightAnchor.constraint(equalToConstant: 20),
-            closeButton.widthAnchor.constraint(equalToConstant: 20),
-            closeButton.topAnchor.constraint(equalTo: bottomView.topAnchor, constant: 10),
-            closeButton.rightAnchor.constraint(equalTo: bottomView.rightAnchor, constant: -10),
+            descriptionLabel.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 10),
+            descriptionLabel.leftAnchor.constraint(equalTo: notificationView.leftAnchor, constant: 12),
+            descriptionLabel.rightAnchor.constraint(equalTo: notificationView.rightAnchor, constant: -12),
             
+            closeButton.heightAnchor.constraint(equalToConstant: 50),
+            closeButton.rightAnchor.constraint(equalTo: notificationView.rightAnchor, constant: -20),
+            closeButton.leftAnchor.constraint(equalTo: notificationView.leftAnchor, constant: 20),
+            closeButton.bottomAnchor.constraint(equalTo: notificationView.bottomAnchor, constant: -20),
+            mkImagew.centerYAnchor.constraint(equalTo: notificationView.centerYAnchor),
+            mkImagew.centerXAnchor.constraint(equalTo: notificationView.centerXAnchor)
+
         ])
-    }
-    
-    @objc func addButtonTapped() {
-        // Действие, которое происходит при нажатии на кнопку "Добавить"
-        print("Кнопка 'Добавить' нажата")
     }
     
 }

@@ -5,13 +5,15 @@ class SGInfoView: UIView {
     
     var storageNumber: String = ""
     var truckNumber: String = ""
+    var weightNumber: String = ""
     
     let storageNumberLabel = UILabel()
     let truckNumberLabel = UILabel()
-    let testLabel = UILabel()
+    let weightNumberLabel = UILabel()
     
     let storageImageView = UIImageView(frame: CGRectMake(32.5, 15, 35, 35))
     let truckImageView = UIImageView(frame: CGRectMake(50, 15, 45, 45))
+    let weightImageView = UIImageView(frame: CGRectMake(27.5, 15, 45, 45))
     
     let storageView = UIView()
     let truckView = UIView()
@@ -20,18 +22,13 @@ class SGInfoView: UIView {
     let stroke = UIView()
     let stroke2 = UIView()
     
-    init() {
-        
+    init(storageNumber:String, truckNumber:String, weightNumber:String) {
+        self.storageNumber = storageNumber
+        self.truckNumber = truckNumber
+        self.weightNumber = weightNumber
         super.init(frame: .zero)
         setupView()
     }
-    
-//    init(storageNumber:String, truckNumber:String) {
-//        self.storageNumber = storageNumber
-//        self.truckNumber = truckNumber
-//        super.init(frame: .zero)
-//        setupView()
-//    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -47,23 +44,23 @@ class SGInfoView: UIView {
         storageView.translatesAutoresizingMaskIntoConstraints = false
         storageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
-        storageNumberLabel.text = "Адреса"
+        storageNumberLabel.text = storageNumber
         storageNumberLabel.textAlignment = .center
         storageNumberLabel.textColor = .black
-        storageNumberLabel.font = UIFont.systemFont(ofSize: 15)
+        storageNumberLabel.font = UIFont.boldSystemFont(ofSize: 15)
         storageNumberLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        truckNumberLabel.text = "Адреса"
+        truckNumberLabel.text = truckNumber
         truckNumberLabel.textAlignment = .center
         truckNumberLabel.textColor = .black
-        truckNumberLabel.font = UIFont.systemFont(ofSize: 15)
+        truckNumberLabel.font = UIFont.boldSystemFont(ofSize: 15)
         truckNumberLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        testLabel.text = "Адреса"
-        testLabel.textAlignment = .center
-        testLabel.textColor = .black
-        testLabel.font = UIFont.systemFont(ofSize: 15)
-        testLabel.translatesAutoresizingMaskIntoConstraints = false
+        weightNumberLabel.text = weightNumber
+        weightNumberLabel.textAlignment = .center
+        weightNumberLabel.textColor = .black
+        weightNumberLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        weightNumberLabel.translatesAutoresizingMaskIntoConstraints = false
         
         stroke.translatesAutoresizingMaskIntoConstraints = false
         stroke.backgroundColor = .gray
@@ -82,13 +79,6 @@ class SGInfoView: UIView {
         dataView3.translatesAutoresizingMaskIntoConstraints = false
         dataView3.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
-//        storageNumberLabel.text = truckNumber
-//        storageNumberLabel.textAlignment = .left
-//        storageNumberLabel.font = UIFont.boldSystemFont(ofSize: 18)
-//        storageNumberLabel.textColor = .blue
-//        storageNumberLabel.translatesAutoresizingMaskIntoConstraints = false
-//        storageNumberLabel.sizeToFit()//If required
-//        //-------
         storageImageView.layer.masksToBounds = false
         storageImageView.clipsToBounds = true
         storageImageView.image =  UIImage(named: "warehouse")
@@ -97,19 +87,10 @@ class SGInfoView: UIView {
         truckImageView.clipsToBounds = true
         truckImageView.image =  UIImage(named: "truck")
         //-------
-//        newOrderTextLabel.text = "Нових замовлень"
-//        newOrderTextLabel.textAlignment = .left
-//        newOrderTextLabel.font = UIFont.boldSystemFont(ofSize: 16)
-//        newOrderTextLabel.textColor = .blue
-//        newOrderTextLabel.translatesAutoresizingMaskIntoConstraints = false
-//        newOrderTextLabel.sizeToFit()//If required
-//        //-------
-//        numberNewOrderLabel.text = storageNumber
-//        numberNewOrderLabel.textAlignment = .left
-//        numberNewOrderLabel.font = UIFont.boldSystemFont(ofSize: 24)
-//        numberNewOrderLabel.textColor = .blue
-//        numberNewOrderLabel.translatesAutoresizingMaskIntoConstraints = false
-//        numberNewOrderLabel.sizeToFit()//If required
+        weightImageView.layer.masksToBounds = false
+        weightImageView.clipsToBounds = true
+        weightImageView.image =  UIImage(named: "weight-3")
+        
     }
     
     lazy var infoStackView: UIStackView = {
@@ -141,7 +122,8 @@ class SGInfoView: UIView {
         storageView.addSubview(storageImageView)
         truckView.addSubview(truckNumberLabel)
         truckView.addSubview(truckImageView)
-        dataView3.addSubview(testLabel)
+        dataView3.addSubview(weightNumberLabel)
+        dataView3.addSubview(weightImageView)
         
         return infoStackView
     }()
@@ -195,9 +177,9 @@ class SGInfoView: UIView {
             truckNumberLabel.rightAnchor.constraint(equalTo: truckView.rightAnchor, constant: -5),
             truckNumberLabel.leftAnchor.constraint(equalTo: truckView.leftAnchor, constant: 5),
             
-            testLabel.bottomAnchor.constraint(equalTo: dataView3.bottomAnchor, constant: -15),
-            testLabel.rightAnchor.constraint(equalTo: dataView3.rightAnchor, constant: -5),
-            testLabel.leftAnchor.constraint(equalTo: dataView3.leftAnchor, constant: 5),
+            weightNumberLabel.bottomAnchor.constraint(equalTo: dataView3.bottomAnchor, constant: -15),
+            weightNumberLabel.rightAnchor.constraint(equalTo: dataView3.rightAnchor, constant: -5),
+            weightNumberLabel.leftAnchor.constraint(equalTo: dataView3.leftAnchor, constant: 5),
             
             
             

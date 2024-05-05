@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreData
 
 class OrderGenerator {
     
@@ -88,19 +87,26 @@ class OrderGenerator {
         return coordinates
     }
     
-    // Метод для генерации случайного общего веса заказа
-    static func generateTotalWeight() -> Int {
-        return Int.random(in: 10...800)
-    }
+   
     
-    // Метод для создания заказа с случайными значениями
+    
     static func generateRandomOrder() -> OrderModel {
+        let (_, products) = MainScreenViewController.generateOrders()
+        let orderDetailVC = OrderDetailsViewController()
+
+        // Вычисляем общий вес заказа
+        var totalWeight = 0.0
+        for product in products {
+            totalWeight += Double(product.quantity)
+        }
+
         return OrderModel(orderNumber: generateOrderNumber(),
                           orderDate: generateOrderDate(),
                           deliveryAddress: generateDeliveryAddress(),
                           storeName: generateStoreName(),
-                          totalWeight: Int(generateTotalWeight()),
-                          shopCoordinates: generateShopCoordinate())
+                          totalWeight: Int(totalWeight), // Передаем общий вес
+                          shopCoordinates: generateShopCoordinate(),
+                          productsText: orderDetailVC.formatProductsText(from: products))
     }
 }
 

@@ -22,6 +22,11 @@ class DeliveryScreenCoordinator: Coordinator {
         navigationController.pushViewController(secondScreenViewController, animated: true)
     }
     
-    
-    
+    var ordersInfoHandler: (([OrderInfo]) -> Void)?
+
+       // Метод для передачи данных в другие контроллеры
+       func passOrdersInfo(_ ordersInfo: [OrderInfo]) {
+           ordersInfoHandler?(ordersInfo)
+       }
+
 }

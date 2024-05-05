@@ -3,36 +3,39 @@ import UIKit
 class MainScreenViewController: SGStackViewController {
     
     weak var coordinator: MainScreenCoordinator?
+    
+    let randomNumber1 = Int.random(in: 500...2000) // Генерация случайного числа от 1 до 100
+    let randomNumber2 = Int.random(in: 500...1000) // Генерация случайного числа от 1 до 100
+    
     let name = String("Андрій Петрович")
+    
     lazy var headerView: SGMainPageHeader = {
         return SGMainPageHeader(name: "Привіт \(name)")
     }()
+    
     var numberOfOrders = Int.random(in: 2...5)
+    
     lazy var dateView: SGNewOrderInfo = {
         return SGNewOrderInfo(dateString: "Сьогодні \(updateDateTime())", newOrderString: "\(numberOfOrders)")
     }()
     
-    lazy var infoView: SGInfoView = SGInfoView()
-    var notificationView: NotificationView = NotificationView(dateString: "", newOrderString: "")
-    //--------------
-    let costMatrix = [
-        [3, 2, 7],
-        [2, 4, 5],
-        [5, 1, 2]
-    ]
+    var sumWeight: Int = 0
     
-    let supply = [100, 150, 200]
-    let demand = [120, 80, 170]
-    //---------------
+    lazy var infoView: SGInfoView = SGInfoView(storageNumber: "Складів 2", truckNumber: "Вільних 2/5", weightNumber: "340")
+    
+    var notificationView: NotificationView = NotificationView(dateString: "", newOrderString: "")
+    
     let buttonHeight: CGFloat = 52
+    
     lazy var titleOrderView: SGTitleOrderView = SGTitleOrderView()
+    
     var orderTableView: SGOrderTableView = SGOrderTableView()
     
+    var orders: [OrderModel] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         loadSubviews()
-        let result = simplexMethod(costMatrix: costMatrix, supply: supply, demand: demand)
-        print(result)
     }
     
     // MARK: CGConstruction funcs
@@ -42,7 +45,7 @@ class MainScreenViewController: SGStackViewController {
         stackView.addArrangedSubview(infoView)
         stackView.addArrangedSubview(dateView, withSpacing: 10)
         stackView.addArrangedSubview(titleOrderView, withSpacing: 10)
-        stackView.addArrangedSubview(orderTableView, withSpacing: 10)
+        self.view.addSubview(orderTableView)
         self.view.addSubview(notificationView)
     }
     
@@ -50,8 +53,6 @@ class MainScreenViewController: SGStackViewController {
         super.configureContent()
         
         navigationController?.navigationBar.tintColor = .black
-        //self.navigationController?.hidesBarsOnTap = true
-        //self.navigationController?.hidesBarsOnSwipe = true
         
         let counterButton = UIBarButtonItem(customView: notificationBarButton)
         let barButtons:[UIBarButtonItem] = [counterButton]
@@ -59,16 +60,28 @@ class MainScreenViewController: SGStackViewController {
         
         titleOrderView.reloadDataButton.addTarget(self, action: #selector(reloadData), for: .touchUpInside)
         
-        orderTableView.orderButton.addTarget(self, action: #selector(tapGenerateOrderButton), for: .touchUpInside)
-        
         notificationView.translatesAutoresizingMaskIntoConstraints = false
         notificationView.isHidden = true
-        
         notificationView.closeButton.addTarget(self, action: #selector(closeNotificationView), for: .touchUpInside)
+        
+        orderTableView.translatesAutoresizingMaskIntoConstraints = false
         orderTableView.orderDelegate = self
         orderTableView.numberOfCells = numberOfOrders
-        
         orderTableView.navigationController = self.navigationController
+        orderTableView.orderButton.addTarget(self, action: #selector(tapGenerateOrderButton), for: .touchUpInside)
+        sumWeight = randomNumber1+randomNumber2
+        
+        // Обновление infoView с новым значением sumWeight
+        let newInfoView = SGInfoView(storageNumber: "Складів 2", truckNumber: "Вільних 1/3", weightNumber: "\(sumWeight) кг.")
+        stackView.insertArrangedSubview(newInfoView, at: 1) // Предполагая, что индекс 1 соответствует индексу infoView
+        infoView.removeFromSuperview()
+        infoView = newInfoView
+        
+        infoView.truckImageView.isUserInteractionEnabled = true
+        // Добавьте жест нажатия к imageView
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        infoView.truckImageView.addGestureRecognizer(tapGesture)
+
     }
     
     override func styleContent() {
@@ -83,12 +96,16 @@ class MainScreenViewController: SGStackViewController {
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12),
             scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
             
             dateView.heightAnchor.constraint(equalToConstant: 75),
             headerView.heightAnchor.constraint(equalToConstant: 100),
             titleOrderView.heightAnchor.constraint(equalToConstant: 40),
-            orderTableView.heightAnchor.constraint(equalToConstant: 700),
+            
+            orderTableView.topAnchor.constraint(equalTo: stackView.bottomAnchor),
+            orderTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12),
+            orderTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12),
+            orderTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             notificationView.heightAnchor.constraint(equalToConstant: 500),
             
@@ -116,11 +133,24 @@ class MainScreenViewController: SGStackViewController {
     }()
     
     @objc func tapGenerateOrderButton() {
-        print("Побудувати маршрут натиснута")
+        print("Побудувати маршрут - натиснута")
+        // Передаем randomNumber1 и randomNumber2 в RouteMapScreenViewController
+        if let mapScreenVC = navigationController?.viewControllers.first(where: { $0 is RouteMapScreenViewController }) as? RouteMapScreenViewController {
+            mapScreenVC.randomNumber1 = randomNumber1
+            mapScreenVC.randomNumber2 = randomNumber2
+        }
     }
     
     @objc func buttonTapped() {
         coordinator?.showOrderDetailsPage()
+    }
+    
+    @objc func imageTapped() {
+        // Создайте экземпляр другого ViewController
+        let truckVC = TruckViewController()
+        
+        // Выполните переход на другой ViewController
+        self.navigationController?.pushViewController(truckVC, animated: true)
     }
     
     // Функция для обновления времени и даты
@@ -150,9 +180,36 @@ class MainScreenViewController: SGStackViewController {
         notificationView.isHidden = true
     }
     
+    static func generateOrders() -> (ShopData, [Product]) {
+        // Создаем экземпляр класса OrderGenerator
+        let orderGenerator = OrderGenerator()
+        
+        // Получаем случайный магазин и его координаты
+        let (shopData, _) = orderGenerator.getRandomShop()
+        
+        // Генерируем случайное количество продуктов в каждом заказе
+        let numberOfProducts = Int.random(in: 1...10)
+        
+        // Генерируем продукты в каждом заказе
+        var products: [Product] = []
+        for _ in 0..<numberOfProducts {
+            let randomIndex = Int.random(in: 0..<vegetables.count)
+            let productName = vegetables[randomIndex] // Предполагается, что у вас есть массив vegetables
+            let quantity = Int.random(in: 10...100)
+            let pricePerKg = Double.random(in: 10...100).rounded(toPlaces: 2)
+            
+            // Создаем экземпляр продукта и добавляем его в заказ
+            let product = Product(name: productName, quantity: quantity, pricePerKg: pricePerKg)
+            products.append(product)
+        }
+        
+        return (shopData, products)
+    }
+    
 }
 
 extension MainScreenViewController: SGOrderTableViewDelegate {
+    
     func didSelectOrder(at indexPath: IndexPath, withData data: OrderModel) {
         let orderDetailsVC = OrderDetailsViewController()
         // Создаем массив данных и добавляем в него выбранный заказ
@@ -172,4 +229,23 @@ extension MainScreenViewController: SGOrderTableViewDelegate {
             navigationController?.pushViewController(mapScreenVC, animated: true)
         }
     }
+    
+    func receivedData(_ data: [OrderModel]) {
+        // Проверяем, отображается ли уже RouteMapScreenViewController
+        if let mapScreenVC = navigationController?.viewControllers.first(where: { $0 is RouteMapScreenViewController }) as? RouteMapScreenViewController {
+            // Обновляем данные о заказах в существующем экземпляре RouteMapScreenViewController
+            mapScreenVC.receivedData = data
+            
+        } else {
+            // Если RouteMapScreenViewController еще не существует, создаем его и передаем данные о заказах.
+            let mapScreenVC = RouteMapScreenViewController()
+            mapScreenVC.receivedData = data
+            navigationController?.pushViewController(mapScreenVC, animated: true)
+        }
+    }
+    // Реализация метода делегата
+        func didUpdateNumberOfOrders(_ numberOfOrders: Int) {
+            // Обновите значение в dateView или в любом другом месте, где это необходимо
+            dateView.updateNumberOfOrders(numberOfOrders)
+        }
 }

@@ -14,9 +14,9 @@ class NotificationView: UIView {
     var newOrderString: String = ""
     
     let dateTimeLabel = UILabel()
-    let boxImageView = UIImageView(frame: CGRectMake(10, 30, 30, 30))
     
     
+    let infoLabel = UILabel()
     
     init(dateString:String, newOrderString:String) {
         self.dateString = dateString
@@ -39,9 +39,12 @@ class NotificationView: UIView {
         dateTimeLabel.translatesAutoresizingMaskIntoConstraints = false
         dateTimeLabel.sizeToFit()//If required
         //-------
-        boxImageView.layer.masksToBounds = false
-        boxImageView.clipsToBounds = true
-        boxImageView.image =  UIImage(named: "logistics-3")
+        infoLabel.text = "Нових повідомлень немає"
+        infoLabel.textAlignment = .left
+        infoLabel.font = UIFont.systemFont(ofSize: 18)
+        infoLabel.textColor = .gray
+        infoLabel.translatesAutoresizingMaskIntoConstraints = false
+        infoLabel.sizeToFit()
         
         
     }
@@ -60,7 +63,7 @@ class NotificationView: UIView {
         notificationView.layer.shadowRadius = 2.0
         
         notificationView.addSubview(dateTimeLabel)
-        notificationView.addSubview(boxImageView)
+        notificationView.addSubview(infoLabel)
         notificationView.addSubview(closeButton)
         
         return notificationView
@@ -92,6 +95,8 @@ class NotificationView: UIView {
             closeButton.topAnchor.constraint(equalTo: notificationView.topAnchor, constant: 10),
             closeButton.rightAnchor.constraint(equalTo: notificationView.rightAnchor, constant: -10),
 
+            infoLabel.centerYAnchor.constraint(equalTo: notificationView.centerYAnchor),
+            infoLabel.centerXAnchor.constraint(equalTo: notificationView.centerXAnchor)
         ])
     }
 }

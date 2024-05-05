@@ -162,7 +162,6 @@ class DetailOrderView: UIView {
     let textView : UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.text = "Пример текста в UITextView"
         textView.font = UIFont.systemFont(ofSize: 16)
         textView.textAlignment = .left
         textView.isEditable = true // Разрешить редактирование текста
@@ -196,17 +195,10 @@ class DetailOrderView: UIView {
         return destinationView
     }()
     
-    // Ваши существующие свойства и инициализаторы
-        
-        func updateTextViewWithProducts(products: [Product]) {
-            var productsText = ""
-            for product in products {
-                productsText += "Наименование: \(product.name)\n"
-                productsText += "Количество: \(product.quantity) кг.\n"
-                productsText += "Цена: \(product.pricePerKg) грн. за кг\n\n"
-            }
-            textView.text = productsText
-        }
+    func updateTextViewWithProducts(_ text: String) {
+        // Добавляем новую строку к существующему тексту в textView
+        textView.text.append("\(text)\n")
+    }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([

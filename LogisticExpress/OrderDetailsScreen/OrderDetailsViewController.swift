@@ -13,9 +13,7 @@ class OrderDetailsViewController: SGStackViewController, MKMapViewDelegate {
     weak var coordinator: OrderDetailsScreenCoordinator?
     
     var map: SGMap = SGMap()
-    
     let mapHeight: CGFloat = 350
-    let qrHeight: CGFloat = 300
     
     var receivedData: [OrderModel] = []
     
@@ -24,6 +22,7 @@ class OrderDetailsViewController: SGStackViewController, MKMapViewDelegate {
     var deliveryAddress: String = ""
     var storeName: String = ""
     var totalWeight: Int = 0
+    var orderDetail: String = ""
     var shopCoordinates: (Double, Double) = (0, 0)
     
     var orderNumberLabel = UILabel()
@@ -47,11 +46,19 @@ class OrderDetailsViewController: SGStackViewController, MKMapViewDelegate {
     // Создаем маркер с координатами и заголовком
     let annotation = MKPointAnnotation()
     
-    let organisationName: String = "Агро-Нова"
-    
     var senderView: SenderInfoView = SenderInfoView()
     var destinationView: DestinationView = DestinationView()
+    var detailOrderView: DetailOrderView = DetailOrderView()
     var bottomButtonView: OSButtonView = OSButtonView()
+    
+    var bottomSheetView: BottomSheetUIView = BottomSheetUIView()
+    
+    let phoneNumber = "123456789"
+    var phoneNumbers: [String] = []
+    
+    // Генерация случайного индекса от 0 до количества элементов в кортеже
+    let randomIndex = Int.random(in: 0..<namesAndSurnames.count)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +72,21 @@ class OrderDetailsViewController: SGStackViewController, MKMapViewDelegate {
         stackView.addArrangedSubview(map, withSpacing: 10)
         stackView.addArrangedSubview(senderView, withSpacing: 10)
         stackView.addArrangedSubview(destinationView, withSpacing: 10)
+        stackView.addArrangedSubview(detailOrderView, withSpacing: 10)
         stackView.addArrangedSubview(bottomButtonView, withSpacing: 10)
+        self.view.addSubview(bottomSheetView)
+    }
+
+    // Функция для форматирования текста с информацией о продуктах
+    func formatProductsText(from products: [Product]) -> String {
+        var productsText = ""
+        for product in products {
+            productsText += "Найменування: \(product.name)\n"
+            productsText += "Кількість: \(product.quantity) кг.\n"
+            productsText += "Ціна: \(product.pricePerKg) грн. за кг.\n"
+            productsText += "\n"
+        }
+        return productsText
     }
     
     override func configureContent() {
@@ -82,10 +103,6 @@ class OrderDetailsViewController: SGStackViewController, MKMapViewDelegate {
         map.layer.shadowRadius = 2.0
         map.heightAnchor.constraint(equalToConstant: mapHeight).isActive = true
         
-        let image = generateQRCode(from: "Let's learn swift.")
-        mkImagew.image = image
-        mkImagew.heightAnchor.constraint(equalToConstant: qrHeight).isActive = true
-        
         // Проверяем, есть ли данные в receivedData
         if receivedData.isEmpty {
             print("No data received")
@@ -96,15 +113,18 @@ class OrderDetailsViewController: SGStackViewController, MKMapViewDelegate {
                 orderDate = order.orderDate
                 deliveryAddress = order.deliveryAddress
                 storeName = order.storeName
-                totalWeight = order.totalWeight
+                orderDetail = order.productsText
                 
                 latitude = order.shopCoordinates.0
                 longitude = order.shopCoordinates.1
-                
+
+                detailOrderView.updateTextViewWithProducts(orderDetail)
                 annotation.title = order.storeName
-                print(order) // Или любую другую информацию о заказе, которую вы хотите вывести
             }
         }
+        
+        let image = generateQRCode(from: orderNumber)
+        bottomSheetView.mkImagew.image = image
         
         let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         annotation.coordinate = location
@@ -139,6 +159,7 @@ class OrderDetailsViewController: SGStackViewController, MKMapViewDelegate {
         deliveryAddressLabel.font = UIFont.systemFont(ofSize: 15)
         deliveryAddressLabel.translatesAutoresizingMaskIntoConstraints = false
         deliveryAddressLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        destinationView.lbl8.text = deliveryAddress
         
         storeNameLabel.text = storeName
         storeNameLabel.textAlignment = .center
@@ -146,6 +167,7 @@ class OrderDetailsViewController: SGStackViewController, MKMapViewDelegate {
         storeNameLabel.font = UIFont.systemFont(ofSize: 15)
         storeNameLabel.translatesAutoresizingMaskIntoConstraints = false
         storeNameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        destinationView.lbl2.text = "\(storeNameLabel.text ?? "NO NAME")"
         
         totalWeightLabel.text = String(totalWeight)
         totalWeightLabel.textAlignment = .center
@@ -157,7 +179,55 @@ class OrderDetailsViewController: SGStackViewController, MKMapViewDelegate {
         orderNumberView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         reloadDataButton.setImage(buttonImage, for: .normal)
         
+        bottomSheetView.translatesAutoresizingMaskIntoConstraints = false
+        bottomSheetView.isHidden = true
         
+        bottomSheetView.closeButton.addTarget(self, action: #selector(closeNotificationView), for: .touchUpInside)
+        
+        bottomButtonView.smallerButton.addTarget(self, action: #selector(showNotificationView), for: .touchUpInside)
+        bottomButtonView.biggerButton.addTarget(self, action: #selector(callButtonTapped), for: .touchUpInside)
+        
+        // Получение случайного элемента из кортежа по сгенерированному индексу
+        let randomNameAndSurname = namesAndSurnames[randomIndex]
+        destinationView.lbl4.text = "\(randomNameAndSurname.0) \(randomNameAndSurname.1)"
+        
+        for _ in 1...50 {
+            var phoneNumber = "+38"
+            
+            // Выбор случайного кода оператора
+            let randomOperatorIndex = Int.random(in: 0..<operatorCodes.count)
+            phoneNumber += operatorCodes[randomOperatorIndex]
+            
+            // Генерация 7 случайных цифр
+            for _ in 1...7 {
+                phoneNumber += "\(Int.random(in: 0...9))"
+            }
+            
+            phoneNumbers.append(phoneNumber)
+        }
+        
+        // Вывод сгенерированных номеров телефонов
+        for phoneNumber in phoneNumbers {
+            destinationView.lbl6.text = "\(phoneNumber)"
+        }
+        
+        let randomEmail = generateRandomEmail()
+        destinationView.lbl10.text = "\(randomEmail)"
+        
+        // Проверяем, что массив не пустой
+        if !paymentAndDeliveryMethods.isEmpty {
+            // Генерируем случайный индекс в допустимом диапазоне
+            let randomPayment = Int.random(in: 0..<paymentAndDeliveryMethods.count)
+            // Получаем случайный элемент из массива
+            let randomMethod = paymentAndDeliveryMethods[randomPayment]
+            detailOrderView.lbl4.text = "\(randomMethod)"
+            
+        } else {
+            print("Массив пустой")
+        }
+        
+        
+       
     }
     
     override func styleContent() {
@@ -179,6 +249,12 @@ class OrderDetailsViewController: SGStackViewController, MKMapViewDelegate {
             scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12),
             scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            bottomSheetView.heightAnchor.constraint(equalToConstant: 500),
+            
+            bottomSheetView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 10),
+            bottomSheetView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            bottomSheetView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             
         ])
     }
@@ -217,14 +293,53 @@ class OrderDetailsViewController: SGStackViewController, MKMapViewDelegate {
         return UIImage()
     }
     
-    let mkImagew : UIImageView = {
-        let imageView = UIImageView()
-        //imageView.frame = CGRect(x:  0, y:  0, width:  0, height:  300)
-        imageView.layer.cornerRadius = 10
-        imageView.clipsToBounds = true
-        imageView.layer.borderWidth =  0.5
-        imageView.layer.borderColor = UIColor.black.cgColor
+    @objc func callButtonTapped() {
+        callPhoneNumber(phoneNumber: phoneNumber)
+    }
+    
+    func callPhoneNumber(phoneNumber: String) {
+        let formattedNumber = phoneNumber.replacingOccurrences(of: " ", with: "")
+            .replacingOccurrences(of: "-", with: "")
+            .replacingOccurrences(of: "(", with: "")
+            .replacingOccurrences(of: ")", with: "")
         
-        return imageView
-    }()
+        if let phoneCallURL = URL(string: "tel://+380\(formattedNumber)") {
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                if #available(iOS 10.0, *) {
+                    application.open(phoneCallURL, options: [:], completionHandler: nil)
+                } else {
+                    application.openURL(phoneCallURL)
+                }
+            }
+        }
+    }
+    
+    func generateRandomEmail() -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyz"
+        let numbers = "0123456789"
+        
+        let randomLetters = (0..<5).map { _ in letters.randomElement()! }
+        let randomNumbers = (0..<5).map { _ in numbers.randomElement()! }
+        
+        let username = String(randomLetters) + String(randomNumbers)
+        let domain = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com"].randomElement()!
+        
+        return "\(username)@\(domain)"
+    }
+    
+    @objc func showNotificationView() {
+        bottomSheetView.isHidden = false
+    }
+    
+    @objc func closeNotificationView() {
+        bottomSheetView.isHidden = true
+    }
+}
+
+extension Double {
+    func rounded(toPlaces places: Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
 }

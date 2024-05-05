@@ -7,8 +7,10 @@
 
 import UIKit
 
-class DeliveryScreenViewController: UIViewController {
+class DeliveryScreenViewController: UIViewController, UITableViewDelegate {
 
+    var deliveryScreenViewController: DeliveryScreenViewController?
+    
     weak var coordinator: DeliveryScreenCoordinator?
     
     let items = ["Активні","Виконані"]
@@ -20,6 +22,8 @@ class DeliveryScreenViewController: UIViewController {
     var tableView: UITableView!
        let data = ["Строка 1", "Строка 2", "Строка 3"]
     
+    var orders: [OrderInfo] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Відправки"
@@ -27,7 +31,25 @@ class DeliveryScreenViewController: UIViewController {
         setupSegmentControl()
         setupTableView()
         makeConstraints()
+        
+        
+        // Получение ссылки на текущий координатор, чтобы использовать его для передачи данных
+          guard let coordinator = coordinator else { return }
+          
+          // Назначение замыкания обработки данных через координатор
+          coordinator.ordersInfoHandler = handleOrdersInfo
     }
+//    // Метод обработки полученных данных
+//        func handleOrdersInfo(_ ordersInfo: [OrderInfo]) {
+//            self.orders = ordersInfo
+//            tableView.reloadData() // Обновление таблицы
+//        }
+    // Метод обработки полученных данных
+        func handleOrdersInfo(_ ordersInfo: [OrderInfo]) {
+            coordinator?.passOrdersInfo(ordersInfo)
+            tableView.reloadData() // Обновление таблицы
+        }
+
     
     func setupSegmentControl() {
         segmentedControl.selectedSegmentIndex = 0
@@ -64,6 +86,7 @@ class DeliveryScreenViewController: UIViewController {
         }
     }
     
+
     func makeConstraints() {
         NSLayoutConstraint.activate([
 
@@ -81,25 +104,17 @@ class DeliveryScreenViewController: UIViewController {
 
 }
 
-extension DeliveryScreenViewController: UITableViewDataSource, UITableViewDelegate{
-    // MARK: - UITableViewDataSource Methods
-        
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            // Возвращаем количество ячеек в таблице
-            return data.count
-        }
-
+extension DeliveryScreenViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return orders.count
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            cell.textLabel?.text = data[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CellIdentifier", for: indexPath)
+            let order = orders[indexPath.row]
+            // Настройка ячейки с данными из заказа
+            // Например:
+            cell.textLabel?.text = "Order: \(order.creationDate)"
             return cell
         }
-
-        // MARK: - UITableViewDelegate Methods
-        
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            // Обработка нажатия на ячейку
-            print("Selected row \(indexPath.row)")
-        }
-    
 }

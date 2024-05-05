@@ -9,7 +9,45 @@ import Foundation
 import UIKit
 
 class OSButtonView: UIView {
- 
+    
+    let biggerButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Зателефонувати", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemGreen
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 30
+        button.addTarget(self, action: #selector(makeCall), for: .touchUpInside)
+        button.layer.borderWidth = 0.2
+        button.layer.borderColor = UIColor.gray.cgColor
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        button.layer.shadowOpacity = 0.2
+        button.layer.shadowRadius = 2.0
+        return button
+    }()
+    
+    let smallerButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .black
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 15
+        button.addTarget(self, action: #selector(openQRView), for: .touchUpInside)
+        button.layer.borderWidth = 0.2
+        button.layer.borderColor = UIColor.gray.cgColor
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        button.layer.shadowOpacity = 0.2
+        button.layer.shadowRadius = 2.0
+        
+        let smallerImage = UIImage(named: "qr") // замените "smallerIcon" на имя вашего изображения
+        button.setImage(smallerImage, for: .normal)
+        // Добавление обработчика нажатия на кнопку
+        //button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+        
+        return button
+    }()
+    
     init() {
         super.init(frame: .zero)
         setupView()
@@ -20,74 +58,39 @@ class OSButtonView: UIView {
     
     private func setupView() {
         addSubview(notificationView)
+        setupButtons()
         setupConstraints()
-        
     }
     
-    
     let notificationView: UIView = {
-        let viewPersonHeight: CGFloat = 100
-        
         let infoView = UIView()
         infoView.backgroundColor = .white
         infoView.layer.cornerRadius = 10
         infoView.translatesAutoresizingMaskIntoConstraints = false
         infoView.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        
-        
-        let biggerButton = UIButton()
-        biggerButton.setTitle("Зателефонувати", for: .normal)
-        biggerButton.backgroundColor = .systemGreen
-        biggerButton.translatesAutoresizingMaskIntoConstraints = false
-        biggerButton.layer.cornerRadius = 30
-
-        biggerButton.layer.borderWidth = 0.2
-        biggerButton.layer.borderColor = UIColor.gray.cgColor
-        biggerButton.layer.shadowColor = UIColor.black.cgColor
-        biggerButton.layer.shadowOffset = CGSize(width: 0, height: 1.0)
-        biggerButton.layer.shadowOpacity = 0.2
-        biggerButton.layer.shadowRadius = 2.0
-        
-        infoView.addSubview(biggerButton)
-        
-        let smallerButton = UIButton()
-        
-        smallerButton.backgroundColor = .black
-        smallerButton.translatesAutoresizingMaskIntoConstraints = false
-        smallerButton.layer.cornerRadius = 15
-        smallerButton.addTarget(self, action: #selector(openQRView), for: .touchUpInside)
-        
-        smallerButton.layer.borderWidth = 0.2
-        smallerButton.layer.borderColor = UIColor.gray.cgColor
-        smallerButton.layer.shadowColor = UIColor.black.cgColor
-        smallerButton.layer.shadowOffset = CGSize(width: 0, height: 1.0)
-        smallerButton.layer.shadowOpacity = 0.2
-        smallerButton.layer.shadowRadius = 2.0
-        
-        let smallerImage = UIImage(named: "qr") // замените "smallerIcon" на имя вашего изображения
-        smallerButton.setImage(smallerImage, for: .normal)
-
-        infoView.addSubview(smallerButton)
-        
-        NSLayoutConstraint.activate([
-            biggerButton.topAnchor.constraint(equalTo: infoView.topAnchor, constant: 5),
-            biggerButton.leadingAnchor.constraint(equalTo: infoView.leadingAnchor),
-            biggerButton.trailingAnchor.constraint(equalTo: smallerButton.leadingAnchor, constant: -10),
-            biggerButton.centerYAnchor.constraint(equalTo: infoView.centerYAnchor),
-            biggerButton.bottomAnchor.constraint(equalTo: infoView.bottomAnchor, constant: -5),
-            biggerButton.heightAnchor.constraint(equalToConstant: 60),
-            
-            smallerButton.topAnchor.constraint(equalTo: infoView.topAnchor, constant: 5),
-            smallerButton.bottomAnchor.constraint(equalTo: infoView.bottomAnchor, constant: -5),
-            smallerButton.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -10),
-            smallerButton.centerYAnchor.constraint(equalTo: infoView.centerYAnchor),
-            smallerButton.widthAnchor.constraint(equalToConstant: 60),
-            smallerButton.heightAnchor.constraint(equalToConstant: 60)
-        ])
-        
         return infoView
     }()
     
+    private func setupButtons() {
+        notificationView.addSubview(biggerButton)
+        notificationView.addSubview(smallerButton)
+        
+        NSLayoutConstraint.activate([
+            biggerButton.topAnchor.constraint(equalTo: notificationView.topAnchor, constant: 5),
+            biggerButton.leadingAnchor.constraint(equalTo: notificationView.leadingAnchor),
+            biggerButton.trailingAnchor.constraint(equalTo: smallerButton.leadingAnchor, constant: -10),
+            biggerButton.centerYAnchor.constraint(equalTo: notificationView.centerYAnchor),
+            biggerButton.bottomAnchor.constraint(equalTo: notificationView.bottomAnchor, constant: -5),
+            biggerButton.heightAnchor.constraint(equalToConstant: 60),
+            
+            smallerButton.topAnchor.constraint(equalTo: notificationView.topAnchor, constant: 5),
+            smallerButton.bottomAnchor.constraint(equalTo: notificationView.bottomAnchor, constant: -5),
+            smallerButton.trailingAnchor.constraint(equalTo: notificationView.trailingAnchor, constant: -10),
+            smallerButton.centerYAnchor.constraint(equalTo: notificationView.centerYAnchor),
+            smallerButton.widthAnchor.constraint(equalToConstant: 60),
+            smallerButton.heightAnchor.constraint(equalToConstant: 60)
+        ])
+    }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -103,6 +106,8 @@ class OSButtonView: UIView {
         print("QR opened")
        
     }
-    
-    
+    @objc func makeCall() {
+        print("call")
+       
+    }
 }
